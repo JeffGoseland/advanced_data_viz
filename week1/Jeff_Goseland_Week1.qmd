@@ -1,0 +1,87 @@
+---
+title: "Advanced Data Visualizations"
+author: "Jeff Goseland"
+date: last-modified
+subtitle: "West - Week 1"
+format: 
+  html:
+    df-print: paged
+    embed-resources: true
+---
+
+```{css echo=FALSE}
+code.r{ /* Code block */
+     background-color: lightyellow;
+     border: 1px solid black;
+} 
+
+pre{ /* Output Block */
+     background-color: #F1F1F1;
+     border: 1px solid black;
+} 
+
+```
+
+## Week 1 Homework
+
+### Load Libraries
+
+```{r warning=FALSE, message=FALSE}
+#loads needed libraries
+suppressMessages({
+  library(tidyverse)
+  library(RColorBrewer)
+  library(janitor)
+  library(scales)
+})
+```
+
+### Open Files
+
+```{r}
+filename <- '../data/311_Phone_Call_Log_Mod.csv'
+
+calls_raw <- read_csv(filename) %>% clean_names() %>% drop_na()
+
+#glimpses dataset
+glimpse(calls_raw)
+head(calls_raw)
+```
+
+## Part B
+
+Given a dataset of and using tools you already know in R (i.e., ggplot) create a chart/data visualization that applies strategies presented this week. When creating this graph, keep in mind the examples you found in Part A.
+
+#### 1. Choose variables you would like to visualize. Use what you learned in Storytelling or the to choose a chart type. You could show how long calls from a particular category last on average, or the total call volume per year, or anything else you think would be interesting! Create a visualization in R. Provide both the visualization and the code used to generate it. 5 pts
+
+```{r message=FALSE}
+
+# let's make a heat map, they are fun.
+calls_raw <- calls_raw %>%
+             mutate(call_date = as.POSIXct(call_date, tz = "UTC"),
+                    hour = hour(call_date),
+                    wday = wday(call_date, label = TRUE, abbr = TRUE))
+
+calls_heat <- calls_raw %>%
+             group_by(wday, hour) %>%
+             summarise(avg_duration = mean(duration_minutes, na.rm = TRUE)/60,                              .groups = "drop")
+
+ggplot(calls_heat, 
+       aes(x = hour, y = wday, fill = avg_duration)) +
+       geom_tile(color = "white") +
+       scale_x_continuous(breaks = 0:30) +
+       scale_fill_gradient(low = "lightblue", high = "red", name = "Avg Duration (min)") +
+       labs(title = "When Do Response Times Slow Down?",
+            subtitle = "Average service duration by hour and day of week",
+            caption = "Source: City Service Calls, Southbend, IN",
+            x  = "Hour of Day",
+            y = "Day of Week")
+```
+
+#### 2. Submit a few sentences discussing your visualization, explaining what you did, why you did it, and what you learned about the dataset by visualizing it. Submit as a PDF (or your RMD file) including your analysis
+
+::: {.callout-note appearance="simple" icon="false"}
+Unfortunately, I went straight to an operational mindset and I wanted to find out when the calls take the longest to reconcile. Thus, I created a heatmap that looked at the data by day of week and time of day. The hope was to see visually some outliers. This type of visualization could help with scheduling or (by deep-diving more) finding what calls are creating those long durations.
+
+The heatmap shows us that the longest calls happen in the middle of the day and seem to be worse Wednesday - Friday, with Thursday and Friday having the worst average call duration (long)
+:::

@@ -1,0 +1,200 @@
+---
+title: "Untitled"
+format: html
+editor: visual
+---
+
+## Building a Network
+
+```{r}
+library(jsonlite)
+library(tidyverse)
+library(tidygraph)
+library(ggraph)
+
+rm(list = ls())
+# active_file <- "data/AI_ML_post2023.rData"
+active_file <- "data/arxiv_MLAI_All.RData"
+```
+
+### Preprocessing
+
+Cutting down the
+
+Generating a topic or author network list.
+
+```{r}
+if (file.exists(active_file)){
+  load(active_file)
+}
+
+
+if (file.exists(active_file)){
+  load(active_file)
+}else{
+  arxiv_data <- jsonlite::stream_in(file("data/arxiv-metadata-oai-snapshot.json"))
+  papers_df <- arxiv_data %>%
+    filter(str_detect(categories, "cs\\.LG|cs\\.AI|stat\\.ML|cs\\.CV|cs\\.CL|cs\\.NE|eess\\.IV"))%>%
+  # filter(str_detect(categories, "cs.LG")) %>% # Find 'cs.LG' (Machine Learning)
+  # 'created' is a better field than 'update_date'
+   mutate(year = lubridate::year(update_date))%>%
+    select(id,authors,authors_parsed,title, categories, abstract,year,update_date)
+  # filter(year >= 2023)
+  save(papers_df, file = active_file)
+}
+print(paste("Filtered down to", nrow(papers_df), "papers."))
+```
+
+### Filtering
+
+taking just the ones since 2023
+
+```{r}
+sample_size <- 1000
+
+
+papers_df <- papers_df %>%
+  mutate(year = lubridate::year(update_date)) %>%
+  filter(year > 2024) %>%
+  filter(str_detect(str_to_lower(abstract), "transformer"))
+
+
+papers_df_sample <- papers_df %>%
+  sample_n(min(n(), sample_size))
+
+
+
+```
+
+## Cleaning
+
+```{r}
+
+authors_by_paper <- papers_df_sample %>%
+  select(paper_id = id, authors_parsed) %>%
+  mutate(author_name = map(authors_parsed, ~ {
+    if (!is.matrix(.x) || nrow(.x) == 0) return(NA_character_)
+    paste(str_squish(.x[, 2]), str_squish(.x[, 1]))
+  })) %>%
+  unnest(author_name) %>%
+  mutate(
+    author_name = author_name |> 
+      str_remove_all("^'|'$") |> 
+      str_remove_all("[\\.:]") |> 
+      str_squish()
+  ) %>%
+  filter(!is.na(author_name), author_name != "")
+
+```
+
+```{r}
+# Raw topic list
+topics_by_paper <- papers_df_sample %>%
+  select(paper_id = id, categories) %>%
+  separate_rows(categories, sep = " ") %>%
+  rename(topic = categories) %>%
+  filter(!is.na(topic), topic != "")
+
+# Count & filter
+valid_topics <- topics_by_paper %>%
+  count(topic) %>%
+  filter(n >= 10) %>%
+  pull(topic)
+
+topics_by_paper_filtered <- topics_by_paper %>%
+  filter(topic %in% valid_topics)
+
+```
+
+```{r}
+author_topic_edges <- authors_by_paper %>%
+  inner_join(topics_by_paper_filtered, by = "paper_id") %>%
+  count(author_name, topic, name = "weight")
+
+author_topic_nodes <- bind_rows(
+  tibble(name = unique(author_topic_edges$author_name), type = "Author"),
+  tibble(name = unique(author_topic_edges$topic), type = "Topic")
+)
+
+write_csv(author_topic_edges, "author_topic_edges.csv")
+write_csv(author_topic_nodes, "author_topic_nodes.csv")
+
+```
+
+```{r}
+topic_edges <- topics_by_paper_filtered %>%
+  group_by(paper_id) %>%
+  summarise(topic_list = list(topic), .groups = "drop") %>%
+  mutate(pairs = map(topic_list, ~ {
+    if (length(.x) < 2) return(NULL)
+    as.data.frame(t(combn(.x, 2)))
+  })) %>%
+  unnest(pairs) %>%
+  rename(from = V1, to = V2) %>%
+  count(from, to, name = "weight") %>%
+  arrange(desc(weight))
+
+topic_nodes <- tibble(
+  name = unique(c(topic_edges$from, topic_edges$to)),
+  type = "Topic"
+)
+
+write_csv(topic_edges, "topic_topic_edges.csv")
+write_csv(topic_nodes, "topic_topic_nodes.csv")
+
+```
+
+```{r}
+author_author_edges <- authors_by_paper %>%
+  group_by(paper_id) %>%
+  summarise(auth_list = list(author_name), .groups = "drop") %>%
+  mutate(pairs = map(auth_list, ~ {
+    if (length(.x) < 2) return(NULL)
+    as.data.frame(t(combn(.x, 2)))
+  })) %>%
+  unnest(pairs) %>%
+  rename(from = V1, to = V2) %>%
+  count(from, to, name = "weight") %>%
+  arrange(desc(weight))
+
+author_nodes <- tibble(
+  name = unique(c(author_author_edges$from, author_author_edges$to)),
+  type = "Author"
+)
+
+write_csv(author_author_edges, "author_author_edges.csv")
+write_csv(author_nodes, "author_author_nodes.csv")
+
+```
+
+Plotting
+
+```{r}
+g <- tbl_graph(nodes = author_topic_nodes, edges = author_topic_edges, directed = FALSE)
+
+ggraph(g, layout = "fr") +
+  geom_edge_link(alpha = 0.1, aes(width = weight)) +
+  geom_node_point(aes(color = type)) +
+  theme_void() +
+  ggtitle("Networks in R (the hairball problem)")
+
+```
+
+Export for Tableau
+
+```{r}
+final_table_for_tableau <- author_metrics %>%
+  activate(nodes) %>%
+  as_tibble() %>%
+  # Make community a factor for Tableau
+  mutate(community = as.factor(community))
+
+# View the final data
+print("--- Final Data for Tableau ---")
+print(head(final_table_for_tableau))
+
+# Write the final CSV
+write_csv(final_table_for_tableau, "arxiv_author_metrics.csv")
+write_csv(final_table_for_tableau, "arxiv_nodes_final.csv")
+
+```
