@@ -1,0 +1,1869 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.1003.1601                               -->
+<workbook original-version='18.1' source-build='2025.2.4 (20252.25.1003.1601)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MapboxVectorStylesAndLayers />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='Book1_17633378815040' path='/workbooks' revision='1.3' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Data Visualization Intro Quiz (2)' inline='true' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Data Visualization Intro Quiz' name='textscan.0l4tepe1dac35r18hu0up0gl00yj'>
+            <connection class='textscan' directory='/Users/jeffgoseland/Library/CloudStorage/GoogleDrive-jeff.goseland@gmail.com/My Drive/Notre Dame /Advanced Data Visualizations/advanced_data_viz/data' filename='Data Visualization Intro Quiz.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0l4tepe1dac35r18hu0up0gl00yj' name='Data Visualization Intro Quiz.csv' table='[Data Visualization Intro Quiz#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='datetime' name='Timestamp' ordinal='0' />
+            <column datatype='string' name='Where are you from?' ordinal='1' />
+            <column datatype='real' name='How many years have you lived in your current residence?' ordinal='2' />
+            <column datatype='string' name='Which animal is better?' ordinal='3' />
+            <column datatype='integer' name='How many hours of TV do you watch each week?' ordinal='4' />
+            <column datatype='string' name='Which is your favorite movie series?' ordinal='5' />
+            <column datatype='string' name='If you could only eat one thing for the rest of your life which would it be?' ordinal='6' />
+            <column datatype='string' name='Which of these things do you think are awesome?' ordinal='7' />
+            <column datatype='integer' name='On a scale of 1-10, how are you doing today?' ordinal='8' />
+            <column datatype='integer' name='How many minutes is your average commute?' ordinal='9' />
+            <column datatype='string' name='Are you an introvert of an extrovert? ' ordinal='10' />
+            <column datatype='real' name='What&apos;s your shoe size?' ordinal='11' />
+            <column datatype='integer' name='How many electronic devices do you own?' ordinal='12' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Timestamp</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[Timestamp]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>Timestamp</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Where are you from?</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Where are you from?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>Where are you from?</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>How many years have you lived in your current residence?</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[How many years have you lived in your current residence?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>How many years have you lived in your current residence?</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Which animal is better?</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Which animal is better?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>Which animal is better?</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>How many hours of TV do you watch each week?</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[How many hours of TV do you watch each week?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>How many hours of TV do you watch each week?</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Which is your favorite movie series?</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Which is your favorite movie series?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>Which is your favorite movie series?</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>If you could only eat one thing for the rest of your life which would it be?</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[If you could only eat one thing for the rest of your life which would it be?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>If you could only eat one thing for the rest of your life which would it be?</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Which of these things do you think are awesome?</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Which of these things do you think are awesome?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>Which of these things do you think are awesome?</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>On a scale of 1-10, how are you doing today?</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[On a scale of 1-10, how are you doing today?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>On a scale of 1-10, how are you doing today?</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>How many minutes is your average commute?</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[How many minutes is your average commute?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>How many minutes is your average commute?</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Are you an introvert of an extrovert? </remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Are you an introvert of an extrovert? ]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>Are you an introvert of an extrovert? </remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>What&apos;s your shoe size?</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[What&apos;s your shoe size?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>What&apos;s your shoe size?</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>How many electronic devices do you own?</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[How many electronic devices do you own?]</local-name>
+            <parent-name>[Data Visualization Intro Quiz.csv]</parent-name>
+            <remote-alias>How many electronic devices do you own?</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Are you an introvert of an extrovert?' datatype='string' name='[Are you an introvert of an extrovert? ]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[How many hours of TV do you watch each week?]' role='measure' type='quantitative' />
+      <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+      <column caption='Data Visualization Intro Quiz.csv' datatype='table' name='[__tableau_internal_object_id__].[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]' role='measure' type='quantitative' />
+      <column-instance column='[How many hours of TV do you watch each week?]' derivation='Avg' name='[avg:How many hours of TV do you watch each week?:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[Are you an introvert of an extrovert? ]' derivation='None' name='[none:Are you an introvert of an extrovert? :nk]' pivot='key' type='nominal' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/w7/t4qqwvh97hqb053z07t3sh_h0000gn/T/tableau-temp/#TableauTemp_0nddj9y1ienpsp1h8avww065od1g.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/17/2025 12:12:09 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Timestamp</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[Timestamp]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Timestamp</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>251</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Where are you from?</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Where are you from?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Where are you from?</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>190</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>How many years have you lived in your current residence?</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[How many years have you lived in your current residence?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>How many years have you lived in your current residence?</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>48</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Which animal is better?</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Which animal is better?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Which animal is better?</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>How many hours of TV do you watch each week?</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[How many hours of TV do you watch each week?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>How many hours of TV do you watch each week?</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>21</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Which is your favorite movie series?</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Which is your favorite movie series?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Which is your favorite movie series?</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>42</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>If you could only eat one thing for the rest of your life which would it be?</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[If you could only eat one thing for the rest of your life which would it be?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>If you could only eat one thing for the rest of your life which would it be?</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Which of these things do you think are awesome?</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Which of these things do you think are awesome?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Which of these things do you think are awesome?</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>116</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>On a scale of 1-10, how are you doing today?</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[On a scale of 1-10, how are you doing today?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>On a scale of 1-10, how are you doing today?</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>How many minutes is your average commute?</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[How many minutes is your average commute?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>How many minutes is your average commute?</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>35</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Are you an introvert of an extrovert? </remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Are you an introvert of an extrovert? ]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Are you an introvert of an extrovert? </remote-alias>
+              <ordinal>10</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>What&apos;s your shoe size?</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[What&apos;s your shoe size?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>What&apos;s your shoe size?</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>13</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>How many electronic devices do you own?</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[How many electronic devices do you own?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>How many electronic devices do you own?</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Data Visualization Intro Quiz.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>31</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[avg:How many hours of TV do you watch each week?:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>6.2352941176470589</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>22.0</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>1.0</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>2.75</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>6.7727272727272725</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>6.3902439024390247</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>25.0</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>14.0</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>6.0</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>10.0</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>9.0</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>17.0</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>3.0</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>6.9629629629629628</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>7.0</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>5.3529411764705879</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>9.3181818181818183</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>6.1578947368421053</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>15.333333333333334</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>6.6428571428571432</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>27.0</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>19.0</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>4.0</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>4.5999999999999996</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>7.5882352941176467</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>6.666666666666667</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>41.0</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>5.0</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Are you an introvert of an extrovert? :nk]' type='palette'>
+            <map to='#056fea'>
+              <bucket>&quot;introvert&quot;</bucket>
+            </map>
+            <map to='#b20e0b'>
+              <bucket>&quot;extrovert&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Data Visualization Intro Quiz.csv' id='Data Visualization Intro Quiz.csv_C11C11D06EEF49D8B7FABC196E52087C'>
+            <properties context=''>
+              <relation connection='textscan.0l4tepe1dac35r18hu0up0gl00yj' name='Data Visualization Intro Quiz.csv' table='[Data Visualization Intro Quiz#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='datetime' name='Timestamp' ordinal='0' />
+                  <column datatype='string' name='Where are you from?' ordinal='1' />
+                  <column datatype='real' name='How many years have you lived in your current residence?' ordinal='2' />
+                  <column datatype='string' name='Which animal is better?' ordinal='3' />
+                  <column datatype='integer' name='How many hours of TV do you watch each week?' ordinal='4' />
+                  <column datatype='string' name='Which is your favorite movie series?' ordinal='5' />
+                  <column datatype='string' name='If you could only eat one thing for the rest of your life which would it be?' ordinal='6' />
+                  <column datatype='string' name='Which of these things do you think are awesome?' ordinal='7' />
+                  <column datatype='integer' name='On a scale of 1-10, how are you doing today?' ordinal='8' />
+                  <column datatype='integer' name='How many minutes is your average commute?' ordinal='9' />
+                  <column datatype='string' name='Are you an introvert of an extrovert? ' ordinal='10' />
+                  <column datatype='real' name='What&apos;s your shoe size?' ordinal='11' />
+                  <column datatype='integer' name='How many electronic devices do you own?' ordinal='12' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Commute Time'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Commute Time</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Visualization Intro Quiz (2)' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1u5kx2z0mn6lil1ggq13n0i97msp'>
+            <column datatype='integer' name='[How many minutes is your average commute?]' role='measure' type='quantitative' />
+            <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+            <column-instance column='[How many minutes is your average commute?]' derivation='None' name='[none:How many minutes is your average commute?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='None' name='[none:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Sum' name='[sum:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:How many minutes is your average commute?:qk]' included-values='in-range'>
+            <min>0</min>
+            <max>619</max>
+          </filter>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:How many minutes is your average commute?:qk]</column>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]</column>
+          </slices>
+          <aggregation value='false' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1.6591712236404419' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-transparency' value='152' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[sum:What&apos;s your shoe size?:qk]</rows>
+        <cols>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:How many minutes is your average commute?:qk]</cols>
+      </table>
+      <simple-id uuid='{B7DE8572-76F7-459D-A70E-F617C4344428}' />
+    </worksheet>
+    <worksheet name='Devices'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Avg. Number of Electronic Devices</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Visualization Intro Quiz (2)' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1u5kx2z0mn6lil1ggq13n0i97msp'>
+            <column datatype='integer' name='[How many electronic devices do you own?]' role='measure' type='quantitative' />
+            <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+            <column-instance column='[How many electronic devices do you own?]' derivation='Avg' name='[avg:How many electronic devices do you own?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Count' name='[cnt:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='None' name='[none:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]' included-values='in-range'>
+            <min>0.0</min>
+            <max>101.0</max>
+          </filter>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]</column>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]' palette='red_blue_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='refboxplot'>
+            <format attr='fill-color' id='refline0' value='#f0f0f0d9' />
+            <format attr='palette' id='refline0' value='bp_teal' />
+            <format attr='opacity' id='refline0' value='124' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]' value='# Electronic Devices'>
+              <formatted-text>
+                <run># Electronic Devices</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='2' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[cnt:What&apos;s your shoe size?:qk]</rows>
+        <cols>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]</cols>
+      </table>
+      <simple-id uuid='{42F41F50-0100-4D43-8674-445142B69D63}' />
+    </worksheet>
+    <worksheet name='Having a Good Day? '>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Visualization Intro Quiz (2)' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1u5kx2z0mn6lil1ggq13n0i97msp'>
+            <column datatype='integer' name='[On a scale of 1-10, how are you doing today?]' role='measure' type='quantitative' />
+            <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+            <column-instance column='[On a scale of 1-10, how are you doing today?]' derivation='Avg' name='[avg:On a scale of 1-10, how are you doing today?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Count' name='[cnt:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='None' name='[none:What&apos;s your shoe size?:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:On a scale of 1-10, how are you doing today?:qk]' palette='red_blue_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:On a scale of 1-10, how are you doing today?:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[cnt:What&apos;s your shoe size?:qk]</rows>
+        <cols>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:ok]</cols>
+      </table>
+      <simple-id uuid='{EB9D56B0-C497-4B0C-8D9A-8E1F15E15BB4}' />
+    </worksheet>
+    <worksheet name='Intro/Extro'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Introvert / Extrovert and Shoe Size
+</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Visualization Intro Quiz (2)' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1u5kx2z0mn6lil1ggq13n0i97msp'>
+            <column caption='Are you an introvert of an extrovert?' datatype='string' name='[Are you an introvert of an extrovert? ]' role='dimension' type='nominal' />
+            <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Count' name='[cnt:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Are you an introvert of an extrovert? ]' derivation='None' name='[none:Are you an introvert of an extrovert? :nk]' pivot='key' type='nominal' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='None' name='[none:What&apos;s your shoe size?:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Sum' name='[sum:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[sum:What&apos;s your shoe size?:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[sum:What&apos;s your shoe size?:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Are you an introvert of an extrovert? :nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.80160218477249146' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[cnt:What&apos;s your shoe size?:qk]</rows>
+        <cols>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:ok]</cols>
+      </table>
+      <simple-id uuid='{60A9EFB7-DB97-430F-A498-B039745EBE51}' />
+    </worksheet>
+    <worksheet name='Size Distribution'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Shoe Size Distribution</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Visualization Intro Quiz (2)' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1u5kx2z0mn6lil1ggq13n0i97msp'>
+            <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Count' name='[cnt:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='None' name='[none:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='refboxplot'>
+            <format attr='fill-color' id='refline0' value='#f0f0f0d9' />
+            <format attr='palette' id='refline0' value='bp_teal' />
+            <format attr='opacity' id='refline0' value='124' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <reference-line axis-column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='2' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[cnt:What&apos;s your shoe size?:qk]</rows>
+        <cols>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]</cols>
+      </table>
+      <simple-id uuid='{141572F8-3573-4A49-A9B8-5D8EDEA200A5}' />
+    </worksheet>
+    <worksheet name='TV Consumption'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Visualization Intro Quiz (2)' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1u5kx2z0mn6lil1ggq13n0i97msp'>
+            <column datatype='integer' name='[How many hours of TV do you watch each week?]' role='measure' type='quantitative' />
+            <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+            <column-instance column='[How many hours of TV do you watch each week?]' derivation='Avg' name='[avg:How many hours of TV do you watch each week?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Count' name='[cnt:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='None' name='[none:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' center='7.5' field='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many hours of TV do you watch each week?:qk]' palette='red_blue_diverging_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many hours of TV do you watch each week?:qk]' value='Avg. Weekly TV Hours'>
+              <formatted-text>
+                <run>Avg. Weekly TV Hours</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many hours of TV do you watch each week?:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[cnt:What&apos;s your shoe size?:qk]</rows>
+        <cols>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:qk]</cols>
+      </table>
+      <simple-id uuid='{689F9843-CE31-4294-9D03-A92C63139D9A}' />
+    </worksheet>
+    <worksheet name='animals'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Animal Preference Based on Shoe Size
+</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Data Visualization Intro Quiz (2)' name='federated.1u5kx2z0mn6lil1ggq13n0i97msp' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1u5kx2z0mn6lil1ggq13n0i97msp'>
+            <column datatype='integer' datatype-customized='true' name='[What&apos;s your shoe size?]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Which animal is better?]' role='dimension' type='nominal' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Count' name='[cnt:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='None' name='[none:What&apos;s your shoe size?:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Which animal is better?]' derivation='None' name='[none:Which animal is better?:nk]' pivot='key' type='nominal' />
+            <column-instance column='[What&apos;s your shoe size?]' derivation='Sum' name='[sum:What&apos;s your shoe size?:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[sum:What&apos;s your shoe size?:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[sum:What&apos;s your shoe size?:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Which animal is better?:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.80160218477249146' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[cnt:What&apos;s your shoe size?:qk]</rows>
+        <cols>[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:What&apos;s your shoe size?:ok]</cols>
+      </table>
+      <simple-id uuid='{B24E2968-38EE-462C-8BD5-434D9128715A}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Does Size Matter?'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Does Shoe Size Matter?</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='2800' maxwidth='1500' minheight='2800' minwidth='1500' preset-index='17' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='99428' id='27' param='vert' type-v2='layout-flow' w='98934' x='533' y='286'>
+            <zone h='1500' id='28' type-v2='title' w='98934' x='533' y='286'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='97928' id='21' param='horz' type-v2='layout-flow' w='98934' x='533' y='1786'>
+              <zone h='97928' id='5' type-v2='layout-basic' w='98934' x='533' y='1786'>
+                <zone h='24750' id='1' param='vert' type-v2='layout-flow' w='98934' x='533' y='1786'>
+                  <zone fixed-size='1114' h='24750' id='3' is-fixed='true' name='Size Distribution' w='98934' x='533' y='1786'>
+                    <layout-cache minheight='198' type-h='scalable' type-w='fixed' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+                <zone h='26500' id='4' name='Devices' w='49468' x='49999' y='46857'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='26357' id='9' name='animals' w='49466' x='533' y='73357'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='26357' id='13' name='Intro/Extro' w='49468' x='49999' y='73357'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='26500' id='19' name='TV Consumption' w='49466' x='533' y='46857'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='20321' id='23' name='Commute Time' w='49468' x='49999' y='26536'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='20321' id='24' name='Having a Good Day? ' w='49466' x='533' y='26536'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='2036' id='12' name='animals' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Which animal is better?:nk]' type-v2='color' w='14000' x='5600' y='75750' />
+        <zone h='2286' id='14' name='Intro/Extro' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Are you an introvert of an extrovert? :nk]' type-v2='color' w='14000' x='55933' y='75714' />
+        <zone h='1857' id='22' name='TV Consumption' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many hours of TV do you watch each week?:qk]' type-v2='color' w='13933' x='31600' y='50643' />
+        <zone fixed-size='160' h='1857' id='20' is-fixed='true' param='vert' type-v2='layout-flow' w='19200' x='7400' y='23771' />
+        <zone h='2714' id='25' name='Having a Good Day? ' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:On a scale of 1-10, how are you doing today?:qk]' type-v2='color' w='20600' x='5133' y='29214' />
+        <zone h='2714' id='33' name='Devices' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]' type-v2='color' w='19733' x='56267' y='50536' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <layout-options>
+            <title>
+              <formatted-text>
+                <run>Does Shoe Size Matter?</run>
+              </formatted-text>
+            </title>
+          </layout-options>
+          <size maxheight='2450' minheight='2450' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='41' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='99428' id='40' param='vert' type-v2='layout-flow' w='98934' x='533' y='286'>
+                <zone h='1500' id='28' type-v2='title' w='98934' x='533' y='286'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='24750' id='3' is-fixed='true' name='Size Distribution' w='98934' x='533' y='1786'>
+                  <layout-cache minheight='198' type-h='scalable' type-w='fixed' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='20321' id='24' is-fixed='true' name='Having a Good Day? ' w='49466' x='533' y='26536'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='2714' id='25' name='Having a Good Day? ' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:On a scale of 1-10, how are you doing today?:qk]' type-v2='color' w='20600' x='5133' y='29214'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='20321' id='23' is-fixed='true' name='Commute Time' w='49468' x='49999' y='26536'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='26500' id='19' is-fixed='true' name='TV Consumption' w='49466' x='533' y='46857'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='1857' id='22' name='TV Consumption' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many hours of TV do you watch each week?:qk]' type-v2='color' w='13933' x='31600' y='50643'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='26500' id='4' is-fixed='true' name='Devices' w='49468' x='49999' y='46857'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='2714' id='33' name='Devices' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]' type-v2='color' w='19733' x='56267' y='50536'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='26357' id='9' is-fixed='true' name='animals' w='49466' x='533' y='73357'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='2036' id='12' name='animals' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Which animal is better?:nk]' type-v2='color' w='14000' x='5600' y='75750'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='26357' id='13' is-fixed='true' name='Intro/Extro' w='49468' x='49999' y='73357'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='2286' id='14' name='Intro/Extro' pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Are you an introvert of an extrovert? :nk]' type-v2='color' w='14000' x='55933' y='75714'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E5D855BF-2F76-425B-8F59-2EA062E06810}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Size Distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{57DBD3F3-0F59-4F92-9FCD-246A20CB6923}' />
+    </window>
+    <window class='worksheet' name='Devices'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many electronic devices do you own?:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C853C756-C23B-4B01-AA43-605244120C21}' />
+    </window>
+    <window class='worksheet' name='Commute Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B01E99EC-F83A-46E4-9408-19440EA2A169}' />
+    </window>
+    <window class='worksheet' name='animals' tab-color='#4f779a'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Which animal is better?:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{9AFA5FBC-EC33-46E3-B995-52C873411298}' />
+    </window>
+    <window class='worksheet' name='Intro/Extro' tab-color='#4f779a'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Are you an introvert of an extrovert? :nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7CDC06C0-0A7A-47D4-866B-102DA091D5FF}' />
+    </window>
+    <window class='worksheet' name='TV Consumption'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:How many hours of TV do you watch each week?:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BECEEEB9-4114-435F-857D-8F5E8FCDCE7E}' />
+    </window>
+    <window class='worksheet' name='Having a Good Day? '>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[avg:On a scale of 1-10, how are you doing today?:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5E20D849-1CF2-472A-85BD-D2C0A3C44472}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Does Size Matter?'>
+      <viewpoints>
+        <viewpoint name='Commute Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Devices'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Having a Good Day? '>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Intro/Extro'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Are you an introvert of an extrovert? :nk]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+        <viewpoint name='Size Distribution'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='TV Consumption'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='animals'>
+          <zoom type='entire-view' />
+          <highlight field='[federated.1u5kx2z0mn6lil1ggq13n0i97msp].[none:Which animal is better?:nk]'>
+            <bucket-selection />
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='24' />
+      <simple-id uuid='{2209D2D1-6FEB-4D82-88A1-74E7CCB6AF85}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Does Size Matter?' width='384'>
+      iVBORw0KGgoAAAANSUhEUgAAAYAAAAGACAYAAACkx7W/AAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAgAElEQVR4nO3deXxTZb4/8E+2pvte2tKVFqRcWixLVUAYKKIOKvrCGR2u4jKMo6hzdRjF
+      5eeKFx1xm5eiiNt1xntFUNRxQaFsItQpFAoCLS0t3WhputM0SZOc5fdHb3OtbWkTmubg+bz/
+      apKT83zztD2fnOcsj0aWZRlERKQ6Wl8XQEREvsEAICJSKQYAEZFKMQCIiFSKAUBEpFIMACIi
+      lWIAEBGpFAOAiEilztsAaG1t9XUJRETnNc1gVwJv2bIFu3btAgCEhoYiJycHubm50Gq9nx37
+      9+/Hxo0b0dzcjISEBCxYsAAzZswAAFx//fXYtGmTV9q1WCz4+9//jqKiIvj5+eHCCy/Eb3/7
+      W0REROCbb76B0+nEwoULz7mdN998EyaTCU888QQ0Go3rebvdjpUrV+KCCy7ArbfeOuh6zpw5
+      g9DQ0F7rsFqtMBgMMBgMHtVmMpnw3nvvobS0FImJibj77rsxevRoj9ZFRMo06Fa8vLwcaWlp
+      uPXWWzFz5kz885//xAMPPABRFL1aWElJCVavXo0lS5Zg9erVWLBgAbZv3+7VNns89dRT0Gg0
+      ePbZZ7F8+XIYDAYcOnQIAJCeno6MjIxhaWffvn2oqKjA4cOHez2fn5+PU6dOobCwcEjrue22
+      2/o89/LLL/dZrzs2bNiArKwsPP/888jMzMR//ud/erwuIlIm/VAWio+PR0ZGBjIyMnDppZfi
+      L3/5C77++mvXt+D6+nps27YNGo0G8+fPR1xcnOu9NTU12LFjB4xGI66++mqEhIQAABwOB3bv
+      3o22tjaMGTMGU6ZM6bVXcfjwYVx22WWYNGkSACAmJsb17b/HmTNnsHPnTpjNZsyZMwdJSUkA
+      AFmWsW3bNlRVVSE9PR1z5851fTuWJAlbtmzBqVOnMHnyZEybNq3P5z106BD++te/QqfTISYm
+      Bunp6a7XQkJCIEkSAKC9vR1Hjhzp9d6MjAzExMTAbDZj8+bNsFqtyM3NRUpKSr99e80112DL
+      li3Izs52PZeXl4err74au3fvdj3X2tqKwsJCtLe3Iy0tDVOnToUsy9i7dy9sNhv27NkDAEhN
+      TUVLSwsaGhpw5MgR2Gw2REREIDMzEwBw4MABHDx4EKNHj8avf/1rV58fOHAAU6dOxalTp1BS
+      UoJ77rkHOp0OAHDllVfik08+6bd+Ijp/uT2Oo9VqcfPNN+O7774DAJSVleHuu++GwWCAVqvF
+      XXfdhcrKSgDd3+IfeOABREVFweFw4M4774TD4QAA/PnPf8bBgwcBAJ999lmfb/eZmZn48ssv
+      UVhYiP5GqcxmM/70pz/BbDYDAO6++27Xck899RS2b9+OuLg4fP3113j++edd73v88cdRVFSE
+      lJQUrFu3Dl999VWfdU+cOBEvvfQSOjo6+ry2Z88e15CYzWbD8ePHcfz4cfz4449YsWIFGhsb
+      YbVacccdd6CrqwsxMTH4y1/+goqKin77c+bMmSgoKHDtUdlsNpSWlmLy5Mm9lnvyySdx8uRJ
+      aLVavPPOO3jnnXcgSRKKi4vhcDhw7NgxFBcXo6WlBZWVlWhra0NVVRWKi4tRU1MDANi0aRPe
+      fvttpKSkoKioqNe3+meffRZbt27FsmXLUFpa6tr4S5KEF154Addcc02/9RPReUwexJo1a+Qv
+      v/yy13ONjY3ykiVLZFmW5RUrVsh79uxxvbZt2zb5iSeekGVZlh944AG5sLDQ9drq1avlb7/9
+      VpZlWb7yyitlm8121ra/++47+aabbpIXLVok/+Mf/5C7urpcr1177bWyIAiux0uWLJHPnDkj
+      nzhxQr7llltkSZJkWZZlURTl3/3ud3Jtba1cVlYm33nnna73NDc3yzfccEOfdtvb2+XnnntO
+      njdvnvzwww/Lx44dc722ceNG+b//+7/7vGfVqlXyW2+9JcuyLK9fv15et26d67Xt27fLq1at
+      6vOe22+/XW5qapJXrlwp5+fny7Isy1u3bpX/9re/yRUVFfK9997bb7+0tbXJv/vd71yPr7vu
+      Otfn7fHMM8/I+/fvdz2WJEleuHCh3NnZ6Xq8ePFi2WQyybIsy/Pnz5fvuusuuaOjo9d6Xnnl
+      Ffmll17qs34iOv8NaQjo5zo6OhAYGAig+xhBTk6O67WLLroI7733nuu1I0eOoLi4GED3MEbP
+      3sFvfvMb3HjjjZgxYwbmzp2Liy66qE87s2fPxuzZs1FeXo73338f9957L9566y1oNBrodDrX
+      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
+      acwndP4AAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='384' name='TV Consumption' width='384'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>

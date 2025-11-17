@@ -7,39 +7,32 @@ editor: visual
 ## Building a Network
 
 ```{r}
-library(jsonlite)
+library(readr)
 library(tidyverse)
 library(tidygraph)
 library(ggraph)
+library(tictoc)
 
 rm(list = ls())
-# active_file <- "data/AI_ML_post2023.rData"
+
 active_file <- "../data/arxiv_MLAI_All.RData"
 ```
 
 ### Preprocessing
 
-Cutting down the
+Cutting down the massive file
 
 Generating a topic or author network list.
 
 ```{r}
 if (file.exists(active_file)){
   load(active_file)
-}
-
-
-if (file.exists(active_file)){
-  load(active_file)
 }else{
   arxiv_data <- jsonlite::stream_in(file("../data/arxiv-metadata-oai-snapshot.json"))
   papers_df <- arxiv_data %>%
     filter(str_detect(categories, "cs\\.LG|cs\\.AI|stat\\.ML|cs\\.CV|cs\\.CL|cs\\.NE|eess\\.IV"))%>%
-  # filter(str_detect(categories, "cs.LG")) %>% # Find 'cs.LG' (Machine Learning)
-  # 'created' is a better field than 'update_date'
    mutate(year = lubridate::year(update_date))%>%
-    select(id,authors,authors_parsed,title, categories, abstract,year,update_date)
-  # filter(year >= 2023)
+   select(id,authors,authors_parsed,title, categories, abstract,year,update_date)
   save(papers_df, file = active_file)
 }
 print(paste("Filtered down to", nrow(papers_df), "papers."))
@@ -47,19 +40,19 @@ print(paste("Filtered down to", nrow(papers_df), "papers."))
 
 ### Filtering
 
-taking just the ones since 2023
+taking just the ones since 2024, only those focused on transformers and only 1000
 
 ```{r}
 sample_size <- 1000
 
 
-papers_df <- papers_df %>%
+papers_df_full_sample <- papers_df %>%
   mutate(year = lubridate::year(update_date)) %>%
   filter(year > 2024) %>%
   filter(str_detect(str_to_lower(abstract), "transformer"))
 
 
-papers_df_sample <- papers_df %>%
+papers_df_sample <- papers_df_full_sample %>%
   sample_n(min(n(), sample_size))
 
 
@@ -98,7 +91,7 @@ topics_by_paper <- papers_df_sample %>%
 # Count & filter
 valid_topics <- topics_by_paper %>%
   count(topic) %>%
-  filter(n >= 10) %>%
+  filter(n >= 5) %>%
   pull(topic)
 
 topics_by_paper_filtered <- topics_by_paper %>%
@@ -170,7 +163,7 @@ write_csv(author_nodes, "../data/author_author_nodes.csv")
 Plotting
 
 ```{r}
-g <- tbl_graph(nodes = author_topic_nodes, edges = author_topic_edges, directed = FALSE)
+g <- tbl_graph(nodes = author_nodes, edges = author_author_edges, directed = FALSE)
 
 ggraph(g, layout = "fr") +
   geom_edge_link(alpha = 0.1, aes(width = weight)) +
@@ -183,6 +176,36 @@ ggraph(g, layout = "fr") +
 Export for Tableau
 
 ```{r}
+
+net_graph <- tbl_graph(nodes = author_nodes, edges = author_author_edges, directed = FALSE)
+
+print(net_graph)
+
+# Run the analysis!
+
+tic()
+author_metrics <- net_graph %>%
+  activate(nodes) %>%
+  mutate(
+    # Degree: Number of unique co-authors
+    degree = centrality_degree(),
+    
+    # Weighted Degree: Total number of co-authored papers
+    strength = centrality_degree(weights = weight),
+    # 
+    # # PageRank: "Importance" based on network structure
+    pagerank = centrality_pagerank(weights = weight),
+    # 
+    # # Betweenness: Role as a "broker" between author groups
+    betweenness = centrality_betweenness(weights = weight, cutoff = 5),
+    # 
+    # # Community Detection: Find research clusters
+    community = group_louvain(weights = weight)
+  )
+toc()
+
+
+
 final_table_for_tableau <- author_metrics %>%
   activate(nodes) %>%
   as_tibble() %>%
