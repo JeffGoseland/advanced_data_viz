@@ -1,0 +1,73 @@
+---
+title: "Advanced Data Visualizations"
+author: "Jeff Goseland"
+date: last-modified
+subtitle: "West - Week 3"
+format: 
+  html:
+    df-print: paged
+    embed-resources: true
+---
+
+```{css echo=FALSE}
+code.r{ /* Code block */
+     background-color: lightyellow;
+     border: 1px solid black;
+} 
+
+pre{ /* Output Block */
+     background-color: #F1F1F1;
+     border: 1px solid black;
+} 
+
+```
+
+## Week 3 Homework
+
+## Part A
+
+```{r warning=FALSE, message=FALSE}
+#loads needed libraries
+suppressMessages({
+  library(tidyverse)
+  library(RColorBrewer)
+  library(sf)
+  library(ggmap)
+})
+```
+
+#### 1. Load spacial data from a shapefile into R
+
+```{r}
+filename <- '../data/School_Boundaries.shp'
+
+school_boundaries_shp <- st_read(filename, stringsAsFactors = FALSE)  
+```
+
+```{r}
+summary(school_boundaries_shp)
+```
+
+```{r}
+school_boundaries_shp[1,0]
+```
+
+```{r}
+plot(school_boundaries_shp)
+```
+
+```{r}
+plot(school_boundaries_shp$geometry)
+
+```
+
+#### 2. Create a spatial data frame from a table of latitude and longitudes
+
+-   Include the code you used to load the csv;
+-   Include the code you used to convert it to a spatial data frame;
+-   Include the output of the summary() command run on the spatial data frame; and
+-   Create a static map with the colors of the features reflecting some variable.
+
+```{r}
+school_boundaries_points <- read.csv("../data/Parks_Locations_and_Features.csv")
+```
