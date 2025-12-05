@@ -33,6 +33,10 @@ suppressMessages({
   library(RColorBrewer)
   library(sf)
   library(ggmap)
+  library(leaflet)
+  library(keyring)
+  library(htmltools)
+  library(Polychrome)
 })
 ```
 
@@ -54,11 +58,17 @@ school_boundaries_shp[1,0]
 
 ```{r}
 plot(school_boundaries_shp)
-```
 
-```{r}
-plot(school_boundaries_shp$geometry)
+# I don't know if we were supposed to do this but the data looks way better 
+# with the district latyer underneath it for context
+districts <- st_read("../data/City_Council_Districts.shp", stringsAsFactors = FALSE)  
 
+ggplot() + 
+   geom_sf(data = districts) +
+  geom_sf(data = school_boundaries_shp$geometry,
+          aes(fill = school_boundaries_shp$SchoolType)) + 
+  labs(fill = "School Type")
+  
 ```
 
 #### 2. Create a spatial data frame from a table of latitude and longitudes
@@ -69,5 +79,121 @@ plot(school_boundaries_shp$geometry)
 -   Create a static map with the colors of the features reflecting some variable.
 
 ```{r}
-school_boundaries_points <- read.csv("../data/Parks_Locations_and_Features.csv")
+# loading the data 
+features_points <- read.csv("../data/Parks_Locations_and_Features.csv")
+
+
+# getting the lat/long
+features_spacial <- features_points %>% 
+                    st_as_sf(coords = c("Lon","Lat")) %>% 
+                    st_set_crs(value = 4326)
+
+summary(features_spacial)
 ```
+
+```{r}
+ggplot() +
+  geom_sf(data = districts) +
+  geom_sf(data = features_spacial, 
+          aes(col = Park_Type)) + 
+  guides(col = guide_legend(override.aes = list(shape = 16))) +
+  labs(col = "Park Type")
+```
+
+## Part B
+
+#### 1. Use the ggmaps package to geocode your subset. Use the output = "more" option.
+
+-   Alternatively, you may use the tidygeocoder package.
+
+```{r}
+#registering gkey
+# key_set_with_value("google_api", password = "har-har-har")
+register_google(key = key_get("google_api"))
+
+# loading the data 
+business_licenses <- read.csv("../data/Goseland_Business_Licenses_9.csv")
+
+```
+
+#### 2. Save the final data frame as a .csv (with the field names lat, lon, and loctype appended onto the original data). Submit this .csv.
+
+```{r warning=FALSE, message=FALSE}
+# get geocode using 'more' option
+print("I'm starting.....")
+geo_data <- business_licenses %>%
+            mutate_geocode(Full_Address, output = "more")
+print("I'm finished.....")
+```
+
+```{r}
+write_csv(geo_data, "./goseland_geocoded_output.csv") 
+```
+
+#### 3. Submit a PDF or HTML file with the code you wrote to do the geocoding and a short justification of the steps you took.
+
+::: {.callout-note appearance="simple" icon="false"}
+## **Justification:**
+
+-   I registered the key securely with keyring so I can do it once and refer to it again later
+-   I use ggplot to geocode since its simple and the full address was already concatonated for me in the Excel sheet (thank you)
+-   I stored the geo_data in a separate value since the geocoding process preserves the original columns
+-   simple save to csv
+:::
+
+## Part C
+
+### Using the examples in the earlier parts of this assignment and in the courseware, use R to make a Leaflet map showing at least one of the datasets from Part A.
+
+```{r}
+# with so many categories I need to a way to make distinct colors 
+# and this worked well -- used google here to find a way
+distinct_colors <- createPalette(length(unique(geo_data$Classification_Description)), 
+                                 c("#ff0000", "#00ff00", "#0000ff"))
+
+# this part I had to do some google and claude help
+# I tried to do it inline and had lots of failures
+color_palette <- colorFactor(palette = distinct_colors,
+                             domain = geo_data$Classification_Description)
+
+leaflet(geo_data) %>%
+    addTiles(group = 'Street Map') %>%
+    addCircleMarkers(lng = ~lon, lat = ~lat,
+                     color = ~color_palette(Classification_Description), # here
+                     fillOpacity = 1,
+                     radius = 4,
+                     stroke = FALSE,
+                     weight = 1,
+                     popup = ~paste0(
+                       "<b>", Business_Name, "</b><br/>",
+                       Classification_Description, "<br/>",
+                       Street_Address),
+                     label = ~Business_Name) %>%
+  addLegend( position = "bottomright", 
+             pal = color_palette, #here
+             values = ~Classification_Description,
+             title = "Business Classification",
+             opacity = 1) %>%
+   # the legend was too big so I used Claude to help me find a way to 
+   # make it smaller
+   htmlwidgets::onRender("
+      function(el, x) {
+        var legend = el.querySelector('.legend');
+        if(legend) {
+          legend.style.fontSize = '10px';
+          legend.style.maxHeight = '400px';
+          legend.style.overflowY = 'auto';
+        }
+      }
+    ")  
+```
+
+#### 1. Write a paragraph explaining what you are showing, why you made particular design choices, and how it could be useful for the audience/user.
+
+::: {.callout-note appearance="simple" icon="false"}
+This is a map of the South Bend area with the businesses and types of businesses plotted by classification. There were so many classifications that I found a way to make very distinct colors as all of the other palettes were creating gradients and hues of the same colors making distinction very hard.
+
+Also because of the number of classifications, I found a way to make the legend smaller. I think both of the choices on the classifications makes it easier for the map consumer to use it.
+:::
+
+#### 2. Include the Leaflet code used to generate the map in a PDF or HTML file.
